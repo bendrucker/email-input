@@ -3,10 +3,10 @@
 var test = require('tape')
 var raf = require('raf')
 var dispatchEvent = require('dispatch-event')
-var thermo = require('thermometer')
+var thermometer = require('thermometer')
 var EmailInput = require('./')
 
-var render = thermo.createComponent(EmailInput)
+var render = thermometer.createComponent(EmailInput)
 
 test('state to dom', function (t) {
   t.plan(1)
