@@ -1,0 +1,42 @@
+{
+  "name": "email-input",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Email input component for virtual-dom",
+  "license": "MIT",
+  "repository": "bendrucker/email-input",
+  "author": {
+    "email": "bvdrucker@gmail.com",
+    "name": "Ben Drucker",
+    "url": "bendrucker.me"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "keywords": [
+    "component",
+    "email",
+    "input",
+    "virtual"
+  ],
+  "devDependencies": {
+    "dispatch-event": "~1.0.0",
+    "dom-delegator": "~13.1.0",
+    "global": "~4.3.0",
+    "main-loop": "~3.1.0",
+    "raf": "~3.1.0",
+    "standard": "^4.0.0",
+    "tape": "^4.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "dover": "~1.0.0",
+    "email-regex": "~1.0.0",
+    "observ": "~0.2.0",
+    "observ-struct": "~6.0.0",
+    "value-event": "~5.1.0",
+    "virtual-dom": "~2.0.1"
+  }
+}
