@@ -1,42 +1,35 @@
 'use strict'
 
 var test = require('tape')
-var document = require('global/document')
-var vdom = require('virtual-dom')
-var Loop = require('main-loop')
 var raf = require('raf')
-var Delegator = require('dom-delegator')
 var dispatchEvent = require('dispatch-event')
+var thermo = require('thermometer')
 var EmailInput = require('./')
 
-test(function (t) {
-  Delegator()
-  var input = EmailInput()
-  var loop = Loop(input(), EmailInput.render, vdom)
-  var element = loop.target
+var render = thermo.createComponent(EmailInput)
 
-  document.body.appendChild(loop.target)
-  input(loop.update)
-
-  test('state to dom', function (t) {
-    t.plan(1)
-    input.value.set('bvdrucker+1@gmail.com')
+test('state to dom', function (t) {
+  t.plan(1)
+  render(function (state, element, done) {
+    state.value.set('bvdrucker+1@gmail.com')
     raf(function () {
       t.equal(element.value, 'bvdrucker+1@gmail.com')
+      done()
     })
   })
+})
 
-  test('dom to state', function (t) {
-    t.plan(2)
+test('dom to state', function (t) {
+  t.plan(2)
+  render(function (state, element, done) {
     element.value = 'bvdrucker+2@gmail.com'
     dispatchEvent(element, 'input', {
       bubbles: true
     })
     raf(function () {
-      t.equal(input.value(), 'bvdrucker+2@gmail.com')
-      t.equal(input.valid(), true)
+      t.equal(state.value(), 'bvdrucker+2@gmail.com')
+      t.equal(state.valid(), true)
+      done()
     })
   })
-
-  t.end()
 })
