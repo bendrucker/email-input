@@ -1,7 +1,7 @@
 {
   "name": "email-input",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Email input component for virtual-dom",
   "license": "MIT",
   "repository": "bendrucker/email-input",
