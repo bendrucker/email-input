@@ -33,8 +33,9 @@
     "index.js"
   ],
   "dependencies": {
-    "dover": "~1.0.0",
+    "dover": "^1.0.0",
     "email-regex": "~1.0.0",
+    "global": "~4.3.0",
     "observ": "~0.2.0",
     "observ-struct": "~6.0.0",
     "value-event": "~5.1.0",
