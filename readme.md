@@ -48,15 +48,9 @@ Type: `boolean`
 
 The validity state of the email. Treat as read only.
 
-###### placeholder
+#### `EmailInput.render(state, options)` -> `object`
 
-Type: `string`
-
-The placeholder for the `<input>`
-
-#### `EmailInput.render(state)` -> `object`
-
-Render an email state to a vtree object.
+Render an email state to a vtree object. `options` will be merged with the defaults (`{type: 'email', name: 'email'}`) and passed to [virtual-hyperscript](https://github.com/Matt-Esch/virtual-dom/tree/master/virtual-hyperscript).
 
 ## License
 
