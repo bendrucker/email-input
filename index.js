@@ -4,6 +4,7 @@ var State = require('dover')
 var Observ = require('observ')
 var emailRegex = require('email-regex')({exact: true})
 var isEmail = emailRegex.test.bind(emailRegex)
+var extend = require('xtend')
 var h = require('virtual-dom/h')
 var changeEvent = require('value-event/change')
 
@@ -31,11 +32,13 @@ function change (state, data) {
   state.value.set(data.email)
 }
 
-EmailInput.render = function render (state) {
-  return h('input', {
+EmailInput.render = function render (state, options) {
+  options = options || {}
+
+  return h('input', extend({
     type: 'email',
     value: state.value,
     name: 'email',
     'ev-event': changeEvent(state.channels.change)
-  })
+  }, options))
 }
