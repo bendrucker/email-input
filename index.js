@@ -29,16 +29,23 @@ function EmailInput (data) {
 }
 
 function change (state, data) {
-  state.value.set(data.email)
+  state.value.set(data[data.name])
+}
+
+var defaults = {
+  type: 'email',
+  name: 'email'
 }
 
 EmailInput.render = function render (state, options) {
-  options = options || {}
+  options = extend(defaults, options || {})
 
-  return h('input', extend({
-    type: 'email',
+  options = extend(options, {
     value: state.value,
-    name: 'email',
-    'ev-event': changeEvent(state.channels.change)
-  }, options))
+    'ev-event': changeEvent(state.channels.change, {
+      name: options.name
+    })
+  })
+
+  return h('input', options)
 }
