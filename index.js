@@ -2,6 +2,8 @@
 
 var State = require('dover')
 var Observ = require('observ')
+var watch = require('observ/watch')
+var pipe = require('value-pipe')
 var emailRegex = require('email-regex')({exact: true})
 var isEmail = emailRegex.test.bind(emailRegex)
 var extend = require('xtend')
@@ -15,15 +17,13 @@ function EmailInput (data) {
 
   var state = State({
     value: Observ(data.value || ''),
-    valid: Observ(isEmail(data.value) || false),
+    valid: Observ(false),
     channels: {
       change: change
     }
   })
 
-  state.value(function (email) {
-    state.valid.set(isEmail(email))
-  })
+  watch(state.value, pipe(isEmail, state.valid.set))
 
   return state
 }
