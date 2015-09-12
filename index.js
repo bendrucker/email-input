@@ -15,7 +15,6 @@ function EmailInput (data) {
   var state = State({
     value: Observ(data.value || ''),
     valid: Observ(isEmail(data.value) || false),
-    placeholder: Observ(data.placeholder || ''),
     channels: {
       change: change
     }
@@ -37,7 +36,6 @@ EmailInput.render = function render (state) {
     type: 'email',
     value: state.value,
     name: 'email',
-    'ev-event': changeEvent(state.channels.change),
-    placeholder: state.placeholder
+    'ev-event': changeEvent(state.channels.change)
   })
 }
