@@ -28,7 +28,7 @@ test('dom to state', function (t) {
     })
     raf(function () {
       t.equal(state.value(), 'bvdrucker+2@gmail.com')
-      t.equal(state.valid(), true)
+      t.ok(EmailInput.validate(state))
       done()
     })
   })

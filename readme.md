@@ -42,11 +42,9 @@ Type: `string`
 
 The email address.
 
-###### valid
+#### `EmailInput.validate(state)` -> `boolean`
 
-Type: `boolean`
-
-The validity state of the email. Treat as read only.
+Validate the email input state.
 
 #### `EmailInput.render(state, options)` -> `object`
 
