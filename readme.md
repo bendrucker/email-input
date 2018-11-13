@@ -1,4 +1,4 @@
-# email-input [![Build Status](https://travis-ci.org/bendrucker/email-input.svg?branch=master)](https://travis-ci.org/bendrucker/email-input)
+# email-input [![Build Status](https://travis-ci.org/bendrucker/email-input.svg?branch=master)](https://travis-ci.org/bendrucker/email-input) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/email-input.svg)](https://greenkeeper.io/)
 
 > Email input component for virtual-dom
 
